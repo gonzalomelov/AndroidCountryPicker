@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="@string/search"
-        android:drawableLeft="@drawable/ic_action_search"
-        android:drawableStart="@drawable/ic_action_search" />
+        android:drawableLeft="@drawable/ic_action_search_hard_gray"
+        android:drawableStart="@drawable/ic_action_search_hard_gray" />
 
     <ListView
         android:id="@+id/country_picker_listview"
