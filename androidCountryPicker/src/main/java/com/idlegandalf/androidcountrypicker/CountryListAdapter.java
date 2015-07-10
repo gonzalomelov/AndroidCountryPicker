@@ -1,5 +1,9 @@
 package com.idlegandalf.androidcountrypicker;
 
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Locale;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,9 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Locale;
+import com.idlegandalf.androidcountrypicker.R.drawable;
 
 public class CountryListAdapter extends BaseAdapter {
 
@@ -32,7 +34,7 @@ public class CountryListAdapter extends BaseAdapter {
     private int getResId(String drawableName) {
 
         try {
-            Class<R.drawable> res = R.drawable.class;
+            Class<drawable> res = R.drawable.class;
             Field field = res.getField(drawableName);
             int drawableId = field.getInt(null);
             return drawableId;
@@ -53,7 +55,7 @@ public class CountryListAdapter extends BaseAdapter {
         this.context = context;
         this.countries = countries;
         inflater = (LayoutInflater) this.context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -94,16 +96,18 @@ public class CountryListAdapter extends BaseAdapter {
 
         // Load drawable dynamically from country code
         String drawableName = "flag_"
-                + country.getCode().toLowerCase(Locale.ENGLISH);
+            + country.getCode().toLowerCase(Locale.ENGLISH);
         cell.imageView.setImageResource(getResId(drawableName));
         return cellView;
     }
 
     /**
      * Holder for the cell
+     *
      */
     static class Cell {
         public TextView textView;
         public ImageView imageView;
     }
+
 }
