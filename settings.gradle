@@ -1,1 +1,2 @@
-include ':app'
+include ':androidCountryPicker'
+project(':androidCountryPicker').projectDir = new File('androidCountryPicker')
